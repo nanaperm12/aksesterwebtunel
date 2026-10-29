@@ -228,6 +228,18 @@ export const Navbar: React.FC = () => {
             )}
           </button>
 
+          {/* View PRD Button */}
+          <button
+            onClick={() => {
+              const event = new CustomEvent('open-prd-modal');
+              window.dispatchEvent(event);
+            }}
+            title="Lihat / Unduh Dokumen PRD"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-slate-300 hover:text-white bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-lg transition-colors whitespace-nowrap shrink-0"
+          >
+            <span>Dokumen PRD</span>
+          </button>
+
           {/* Quick Demo Reset */}
           <button
             onClick={resetDemoData}

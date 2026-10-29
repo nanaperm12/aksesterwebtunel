@@ -26,6 +26,7 @@ import { CreateWebTunnelModal } from './components/modals/CreateWebTunnelModal';
 import { CreatePortTunnelModal } from './components/modals/CreatePortTunnelModal';
 import { AddCustomDomainModal } from './components/modals/AddCustomDomainModal';
 import { AddAgentModal } from './components/modals/AddAgentModal';
+import { PrdModal } from './components/modals/PrdModal';
 
 const DashboardContent: React.FC = () => {
   const { isCustomerView, activeCustomerTab, activeAdminTab } = useApp();
@@ -34,6 +35,13 @@ const DashboardContent: React.FC = () => {
   const [isCreatePortOpen, setIsCreatePortOpen] = useState(false);
   const [isAddDomainOpen, setIsAddDomainOpen] = useState(false);
   const [isAddAgentOpen, setIsAddAgentOpen] = useState(false);
+  const [isPrdModalOpen, setIsPrdModalOpen] = useState(false);
+
+  React.useEffect(() => {
+    const handleOpenPrd = () => setIsPrdModalOpen(true);
+    window.addEventListener('open-prd-modal', handleOpenPrd);
+    return () => window.removeEventListener('open-prd-modal', handleOpenPrd);
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
@@ -97,6 +105,10 @@ const DashboardContent: React.FC = () => {
       <AddAgentModal
         isOpen={isAddAgentOpen}
         onClose={() => setIsAddAgentOpen(false)}
+      />
+      <PrdModal
+        isOpen={isPrdModalOpen}
+        onClose={() => setIsPrdModalOpen(false)}
       />
     </div>
   );
