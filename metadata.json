@@ -1,0 +1,6 @@
+{
+  "name": "Aksester - SaaS Web & Port Tunnel Management",
+  "description": "Platform SaaS Web Tunnel & Port Tunnel untuk publikasi layanan lokal via HTTPS dan TCP/UDP tanpa buka port lokal, dilengkapi dashboard pelanggan, admin console, dan billing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
